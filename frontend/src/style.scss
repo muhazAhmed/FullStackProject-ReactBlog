@@ -1,0 +1,120 @@
+*{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+$lightGreen : #b9e7e7;
+.app{
+    display: flex;
+    justify-content: center;
+    .container{
+        width: 64em;
+
+
+        .link{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        //Login && Register page
+        .auth{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: $lightGreen;
+
+            h1{
+                font-size: 1.2em;
+                color: rgb(157, 62, 179);
+                margin-bottom: 1.2em;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                padding: 5.5em;
+                background-color: azure;
+                border-radius: 1.5em;
+                width: 15em;
+                gap: 1.2em;
+
+                input{
+                    padding: 1em;
+                    border: none;
+                    border-bottom: 0.1em solid gray;
+                    border-radius: 0.8em;
+                }
+
+                button{
+                    padding: 1em;
+                    border: none;
+                    border-radius: 0.8em;
+                    background-color: rgb(47, 255, 186);
+                    cursor: pointer;
+                    color: white;
+                }
+                
+                p{
+                    font-size: 0.9em;
+                    color: red;
+                    text-align: center;
+                }
+
+                span{
+                    font-size: small;
+                    text-align: center;
+                }
+            }
+        }
+
+
+        //Navbar
+        .navbar{
+            .container{
+                padding: 1em 0em;
+                display: flex;
+                justify-content: space-between;
+
+
+                .logo{
+                    img{
+                        width: 8em;
+                    }
+                }
+                .links{
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+
+                    h6{
+                        font-size: 1em;
+                        font-weight: 300;
+                    }
+
+                    span{
+                        cursor: pointer;
+                    }
+
+                    .write{
+                        background-color: $lightGreen;
+                        width: 3em;
+                        height: 2em;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 600;
+                        border: 0.1em solid white;
+
+                        &:hover{
+                            color: rgb(0, 0, 0);
+                            background-color: rgb(255, 255, 255);
+                            border: 0.1em solid rgb(35, 174, 255);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
