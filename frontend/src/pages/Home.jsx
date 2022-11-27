@@ -39,8 +39,8 @@ const Home = () => {
     <div className='home'>
       <div className='posts'>
         {posts.map(post => (
-            <div className='post' key={post.id}>
-                <div className='img'>
+            <div className='post' key={post.id} data-aos="zoom-out">
+                <div className='img' >
                     <img src={post.img} alt="pic"/>
                 </div>
                 <div className='content'>
