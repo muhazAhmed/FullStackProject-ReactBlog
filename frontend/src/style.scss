@@ -3,6 +3,7 @@
 }
 
 $lightGreen : #b9e7e7;
+$lightBlue : rgb(35, 174, 255);
 .app{
     display: flex;
     justify-content: center;
@@ -105,12 +106,14 @@ $lightGreen : #b9e7e7;
                         align-items: center;
                         justify-content: center;
                         font-weight: 600;
-                        border: 0.1em solid white;
+                        border: 0.2em solid white;
 
                         &:hover{
                             color: rgb(0, 0, 0);
                             background-color: rgb(255, 255, 255);
                             border: 0.1em solid rgb(35, 174, 255);
+                            padding: 0.1em;
+                            transition: 0.5s;
                         }
                     }
                 }
@@ -124,7 +127,7 @@ $lightGreen : #b9e7e7;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.8em;
+            font-size: 0.9em;
             img{
                 height: 7em;
             }
@@ -188,14 +191,225 @@ $lightGreen : #b9e7e7;
                             border: none;
                             cursor: pointer;
                             background-color: white;
-                            border: 0.1em solid rgb(35, 174, 255);
+                            border: 0.15em solid rgb(35, 174, 255);
                             border-radius: 1.5em;
                             color: teal;
 
                             &:hover{
-                                background-color: rgb(35, 174, 255);
+                                background-color: $lightBlue;
+                                color: white;
+                                padding: 1em 1.5em;
+                                transition: 0.4s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        //Single
+
+        .single{
+            display: flex;
+            gap: 3em;
+
+            .content{
+                flex: 5;
+                display: flex;
+                flex-direction: column;
+
+                img{
+                    width: 100%;
+                    height: 20em;
+                    object-fit: cover;
+                    gap: 1.8em;
+                }
+
+                .user{
+                    margin-top: 0.8em;
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+                    font-size: 1em;
+
+                    img{
+                        width: 3em;
+                        height: 3em;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    span{
+                        font-weight: bold;
+                    }
+                }
+
+                .edit{
+                    display: flex;
+                    gap: 0.2em;
+
+                    img{
+                        width: 1.6em;
+                        height: 1.6em;
+                    }
+                }
+
+                h1{
+                    font-size: 2.5em;
+                    color: #333;
+                }
+
+                p{
+                    text-align: justify;
+                    line-height: 1.8em;
+                }
+            }
+
+            .menu{
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 1.7em;
+
+                h1{
+                    font-size: 1.2em;
+                    color: #555;
+                }
+
+                .post{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.7em;
+
+                    img{
+                        width: 100%;
+                        height: 18em;
+                        object-fit: cover;
+                    }
+
+                    h2{
+                        color: #555;
+                    }
+
+                    button{
+                        width: max-content;
+                        padding: 0.8em 1.2em;
+                        border: none;
+                        cursor: pointer;
+                        background-color: white;
+                        border: 0.15em solid $lightBlue;
+                        border-radius: 1.5em;
+                        color: teal;
+
+                        &:hover{
+                            background-color: rgb(35, 174, 255);
+                            color: white;
+                            padding: 1em 1.5em;
+                            transition: 0.4s;
+                        }
+                    }
+                }
+            }
+        }
+
+        //Writing
+
+        .add{
+            margin-top: 1.2em;
+            display: flex;
+            gap: 1.2em;
+
+            .content{
+                flex: 5;
+                display: flex;
+                flex-direction: column;
+                gap: 1.2em;
+
+                input{
+                    padding: 0.8em;
+                    border: 0.3em solid $lightGreen;
+                    border-radius: 1em;
+                }
+                
+                .editorContainer{
+                    height: 18.5em;
+                    overflow: scroll;
+                    border: 0.1em solid $lightGreen;
+
+                    .editor{
+                        height: 100%;
+                        border: none;
+                    }
+                }
+            }
+
+            .menu{
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 1.2em;
+
+                .item{
+                    border: 0.01em solid lightgray;
+                    padding: 0.6em;
+                    flex: 5;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-size: 0.8em;
+                    color: #555;
+
+                    h1{
+                        font-size: 1.4em;
+                    }
+
+                    .file{
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                    .buttons{
+                        display: flex;
+                        justify-content: space-between;
+
+                        :first-child{
+                            color: $lightBlue;
+                            background-color: white;
+                            border: 0.1em solid teal;
+                            padding: 0.2em 0.2em;
+                            cursor: pointer;
+                            border-radius: 2em;
+
+                            &:hover{
+                                background-color: $lightBlue;
                                 color: white;
                             }
+                        }
+                        
+                        :last-child{
+                            color: white;
+                            background-color: teal;
+                            border: 0.1em solid teal;
+                            padding: 0.2em 0.2em;
+                            cursor: pointer;
+                            border-radius: 2em;
+
+
+                            &:hover{
+                                background-color: white;
+                                color: $lightBlue;
+                            }
+                        }
+                    }
+                    .cat{
+                        display: flex;
+                        align-items: center;
+                        gap: 0.3em;
+                        color: teal;
+
+                        &:hover{
+                            font-size: large;
                         }
                     }
                 }
