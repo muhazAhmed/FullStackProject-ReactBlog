@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
 const cors = require("cors");
 require("dotenv").config();
+const route = require ("./route")
+
+app.use(express.json())
+app.use("/", route);
 
 app.get("/", (req, res) => {
   res.json("Api is Working...");
