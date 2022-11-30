@@ -1,5 +1,5 @@
 const express = require ('express')
-const post = require ('./controllers/posts')
+const {GetPosts, GetPost, AddPost, DeletePost, UpdatePost} = require ('./controllers/posts.js')
 const user = require ('./controllers/users')
 const {register, login, logout} = require ('./controllers/auth')
 
@@ -9,14 +9,16 @@ router.get("/api/test", (req,res) => {
     res.json("Api is tested and working...")
 })
 
-// =================> API <==========
-router.post("/api/posts",post)
+// =================> Post API <==========
+router.get("/",GetPosts)
+router.get("/:id",GetPost)
+router.post("/",AddPost)
+router.delete("/:id",DeletePost)
+router.put("/:id",UpdatePost)
 
-router.get("/api/user",user)
-
-// =================> main API <==========
+// =================> auth API <==========
 router.post("/api/auth/register",register)
-router.get("/api/auth/login",login)
-router.get("/api/auth/logout",logout)
+router.post("/api/auth/login",login)
+router.post("/api/auth/logout",logout)
 
 module.exports = router

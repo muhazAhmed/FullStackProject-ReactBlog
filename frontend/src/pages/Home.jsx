@@ -1,40 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Home = () => {
 
-    const posts = [
-        {
-            id : 1,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/300/300"
-        },
-        {
-            id : 2,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/seed/picsum/300/300"
-        },
-        {
-            id : 3,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/300/300?grayscale"
-        },
-        {
-            id : 4,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/id/237/300/300"
-        },
-        {
-            id : 5,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/400/600"
-        },
-    ]
+    const [posts, setPosts] = useState([])
+
+    useEffect (() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get("/posts")
+                setPosts(res.data);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData();
+    },[])
+
+    // const posts = [
+    //     {
+    //         id : 1,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/300/300"
+    //     },
+    //     {
+    //         id : 2,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/seed/picsum/300/300"
+    //     },
+    //     {
+    //         id : 3,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/300/300?grayscale"
+    //     },
+    //     {
+    //         id : 4,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/id/237/300/300"
+    //     },
+    //     {
+    //         id : 5,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/400/600"
+    //     },
+    // ]
   return (
     <div className='home'>
       <div className='posts'>
