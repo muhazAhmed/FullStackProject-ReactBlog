@@ -1,27 +1,41 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-const Menu = () => {
+const Menu = ({cat}) => {
+  const [posts, setPosts] = useState([]);
 
-    const posts = [
-        {
-            id : 1,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/300/300"
-        },
-        {
-            id : 2,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/seed/picsum/300/300"
-        },
-        {
-            id : 3,
-            title : "Lorem ipsum dolor sit amet",
-            desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            img : "https://picsum.photos/300/300?grayscale"
-        }
-    ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/posts/?cat=${cat}`);
+        setPosts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [cat]);
+
+    // const posts = [
+    //     {
+    //         id : 1,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/300/300"
+    //     },
+    //     {
+    //         id : 2,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/seed/picsum/300/300"
+    //     },
+    //     {
+    //         id : 3,
+    //         title : "Lorem ipsum dolor sit amet",
+    //         desc : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //         img : "https://picsum.photos/300/300?grayscale"
+    //     }
+    // ];
 
   return (
     <div className='menu'>
